@@ -27,7 +27,7 @@ constructor(
 
 getAll(): Observable<Character[]> {
  return this.httpClient.get<Character[]>
- (`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${this.publicKey}&hash=${this.hash2}`,this.options)
+ (`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${this.publicKey}&hash=${this.hash2}`,this.options)
  .pipe(map((response: any) => response.data.results));
 }
 getCharacterById(id: number):Observable<Character>{
