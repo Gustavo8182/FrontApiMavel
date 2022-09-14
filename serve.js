@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static('./dist/front-api-marvel'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/front-api-marvel/'}),
+    res.sendFile('index.html', {root: 'dist/front-api-marvel/index.html'}),
 );
 
 // Start the app by listening on the default Heroku port
