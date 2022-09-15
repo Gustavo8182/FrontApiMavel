@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Character } from '../Model/character.model';
+import {Md5} from 'ts-md5';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterServiceService {
 
-   publicKey = "924d714a8847e6e91ab2f99942d410ad";
-  privateKey = "25c602b85fc7528687a6793d25102a66b8dce877";
-  timestamp = new Date().getTime();
-  /*hash = Md5.hashStr(
-    this.timestamp +this.privateKey+this.publicKey);*/
-  hash2 ="3284269f194910347cf9bd0db26c5379"
+ publicKey = "5a237863b3cc2061003cbbc4fe20dc06";
+ timestamp = 1
+ hash = Md5.hashStr(this.timestamp+'fbf255068eccea6d0ef951b9f25626b57ab2fe725a237863b3cc2061003cbbc4fe20dc06');
 
-  options = {
+ options = {
     headers: {
       'Content-Type': 'application/json'
     }
@@ -26,13 +26,14 @@ constructor(
 ) { }
 
 getAll(): Observable<Character[]> {
+  console.log(this.hash);
  return this.httpClient.get<Character[]>
- (`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${this.publicKey}&hash=${this.hash2}`,this.options)
+ (`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${this.publicKey}&hash=${this.hash}`,this.options)
  .pipe(map((response: any) => response.data.results));
 }
 getCharacterById(id: number):Observable<Character>{
   return this.httpClient.get<Character[]>
-  (`http://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash2}`)
+  (`http://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
   .pipe(map((response: any) => response.data.results));
 }
 }
