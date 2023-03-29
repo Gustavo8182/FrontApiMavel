@@ -15,11 +15,4 @@ export class CharacterCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  goPlaces() {
-    let id = this.character?.id;
-    this.router.navigateByUrl(`character-details/${{id}}`);
-  }
-
-
 }

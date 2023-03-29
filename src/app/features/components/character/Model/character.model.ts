@@ -1,7 +1,7 @@
 import { Thumbnail } from "./thumbnail.model";
 
 export interface Character {
-  id?: number;
+  id: number;
   name: string;
   description: string;
   thumbnail: Thumbnail;
