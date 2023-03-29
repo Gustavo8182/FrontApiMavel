@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const nomeApp = process.env.npm_package_name;
+const nomeApp ="front-api-marvel";
 
 // Serve only the static files form the dist directory
 app.use(express.static(`${__dirname}/dist/${nomeApp}`));
