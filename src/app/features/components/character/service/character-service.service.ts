@@ -33,7 +33,7 @@ getAll(): Observable<Character[]> {
 }
 getCharacterById(id: number):Observable<Character>{
   return this.httpClient.get<Character[]>
-  (`http://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash}`)
+  (`http://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=${this.publicKey}&hash=${this.hash},this.options`)
   .pipe(map((response: any) => response.data.results));
 }
 }
