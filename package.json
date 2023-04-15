@@ -12,7 +12,7 @@
   },
   "engines": {
     "node": "18.14.0",
-    "npm": "9.3.1"
+    "npm": " 9.6.2"
   },
   "private": true,
   "dependencies": {
